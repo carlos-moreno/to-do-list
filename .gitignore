@@ -130,3 +130,6 @@ dmypy.json
 
 # .idea
 .idea
+
+# directory of project
+.to-do-list
