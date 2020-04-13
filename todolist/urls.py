@@ -19,6 +19,7 @@ from django.urls import path
 import todolist.core.views
 
 urlpatterns = [
-    path('', todolist.core.views.home),
-    path('admin/', admin.site.urls),
+    path("", todolist.core.views.list, name="list"),
+    path("admin/", admin.site.urls),
+    path("<slug:slug>/", todolist.core.views.detail, name="detail"),
 ]

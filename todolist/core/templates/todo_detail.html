@@ -1,13 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% for todo in todos %}
     <div class="card w-50">
       <div class="card-body">
         <h5 class="card-title">{{ todo.title }}</h5>
         <p class="card-text">{{ todo.description }}</p>
-        <a href="{% url 'detail' slug=todo.slug %}" class="btn btn-primary">Detail</a>
+        <p class="card-text">{{ todo.created_at|timesince }}</p>
+        <p class="card-text">{{ todo.ended }}</p>
+        <p class="card-text">{{ todo.ended_in|timesince }}</p>
+
+        <a href="{% url 'list' %}" class="btn btn-primary">Back</a>
       </div>
     </div>
-{% endfor %}
 {% endblock %}
