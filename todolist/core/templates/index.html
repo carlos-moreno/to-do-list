@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 
+
+{% block button %}
+<a href="{% url 'new' %}" class="mb-2 btn btn-success" style="">New Item</a>
+{% endblock %}
 {% block content %}
 {% for todo in todos %}
     <div class="card w-50">
@@ -7,6 +11,7 @@
         <h5 class="card-title">{{ todo.title }}</h5>
         <p class="card-text">{{ todo.description }}</p>
         <a href="{% url 'detail' slug=todo.slug %}" class="btn btn-primary">Detail</a>
+        <a href="{% url 'delete' slug=todo.slug %}" class="btn btn-danger">Delete</a>
       </div>
     </div>
 {% endfor %}
