@@ -20,6 +20,8 @@ import todolist.core.views
 
 urlpatterns = [
     path("", todolist.core.views.list, name="list"),
+    path("new", todolist.core.views.new, name="new"),
+    path("detail/<slug:slug>/", todolist.core.views.detail, name="detail"),
+    path("delete/<slug:slug>/", todolist.core.views.delete, name="delete"),
     path("admin/", admin.site.urls),
-    path("<slug:slug>/", todolist.core.views.detail, name="detail"),
 ]
