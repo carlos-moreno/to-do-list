@@ -40,6 +40,6 @@ def create(request):
 
 
 def delete(request, slug):
-    todo = todo = get_object_or_404(ToDo, slug=slug)
+    todo = get_object_or_404(ToDo, slug=slug)
     todo.delete()
     return HttpResponseRedirect(r("list"))
