@@ -5,14 +5,31 @@
 <a href="{% url 'new' %}" class="mb-2 btn btn-success" style="">New Item</a>
 {% endblock %}
 {% block content %}
+<div class="row">
+<div class="col-6">
+<span class="badge badge-pill badge-primary mb-1">To Do</span>
 {% for todo in todos %}
-    <div class="card w-50">
+    <div class="card w-100">
       <div class="card-body">
         <h5 class="card-title">{{ todo.title }}</h5>
         <p class="card-text">{{ todo.description }}</p>
-        <a href="{% url 'detail' slug=todo.slug %}" class="btn btn-primary">Detail</a>
+        <a href="{% url 'done' slug=todo.slug %}" class="btn btn-info">Done</a>
         <a href="{% url 'delete' slug=todo.slug %}" class="btn btn-danger">Delete</a>
       </div>
     </div>
 {% endfor %}
+</div>
+<div class="col-6">
+<span class="badge badge-pill badge-secondary mb-1">Done</span>
+{% for todo in todos_done %}
+    <div class="card w-100">
+      <div class="card-body">
+        <h5 class="card-title">{{ todo.title }}</h5>
+        <p class="card-text">{{ todo.description }}</p>
+        <a href="{% url 'delete' slug=todo.slug %}" class="btn btn-danger">Delete</a>
+      </div>
+    </div>
+{% endfor %}
+</div>
+    </div>
 {% endblock %}

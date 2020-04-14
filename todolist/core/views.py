@@ -7,13 +7,9 @@ from django.shortcuts import resolve_url as r
 
 
 def list(request):
-    todos = ToDo.objects.all()
-    return render(request, "index.html", {"todos": todos})
-
-
-def detail(request, slug):
-    todo = get_object_or_404(ToDo, slug=slug)
-    return render(request, "todo_detail.html", {"todo": todo})
+    todos = ToDo.objects.filter(ended=False)
+    todos_done = ToDo.objects.filter(ended=True)
+    return render(request, "index.html", {"todos": todos, "todos_done": todos_done})
 
 def new(request):
     if request.method == "POST":
@@ -36,10 +32,16 @@ def create(request):
 
     todo = form.save()
 
-    return HttpResponseRedirect(r("detail", todo.slug))
+    return HttpResponseRedirect(r("list"))
 
 
 def delete(request, slug):
     todo = get_object_or_404(ToDo, slug=slug)
     todo.delete()
+    return HttpResponseRedirect(r("list"))
+
+def done(request, slug):
+    todo = get_object_or_404(ToDo, slug=slug)
+    todo.ended = True
+    todo.save(update_fields=['ended'])
     return HttpResponseRedirect(r("list"))
