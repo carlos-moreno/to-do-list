@@ -1,15 +1,16 @@
-from django.shortcuts import render
-from todolist.core.models import ToDo
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
-from todolist.core.forms import ToDoForm
-from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import resolve_url as r
+
+from todolist.core.forms import ToDoForm
+from todolist.core.models import ToDo
 
 
 def list(request):
     todos = ToDo.objects.filter(ended=False)
     todos_done = ToDo.objects.filter(ended=True)
     return render(request, "index.html", {"todos": todos, "todos_done": todos_done})
+
 
 def new(request):
     if request.method == "POST":
@@ -30,7 +31,7 @@ def create(request):
     if not form.is_valid():
         return render(request, "todo_create.html", {"form": form})
 
-    todo = form.save()
+    form.save()
 
     return HttpResponseRedirect(r("list"))
 
@@ -39,6 +40,7 @@ def delete(request, slug):
     todo = get_object_or_404(ToDo, slug=slug)
     todo.delete()
     return HttpResponseRedirect(r("list"))
+
 
 def done(request, slug):
     todo = get_object_or_404(ToDo, slug=slug)
