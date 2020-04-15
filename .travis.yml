@@ -1,9 +1,17 @@
 dist: xenial
 language: python
 python:
-  - '3.8'
+- '3.8'
 install:
-  - cp contrib/env-sample .env
-  - pip install -r requirements.txt
+- cp contrib/env-sample .env
+- pip install -r requirements.txt
 script:
-  - python manage.py test
+- python manage.py test
+deploy:
+  provider: heroku
+  api_key:
+    secure: "$HEROKU_API_KEY"
+  app: carlos-moreno-to-do
+env:
+  global:
+    secure: m1p9/ebUzxiq6PfITMz7dRyMpIpIuiTSHKvfY3ooJkN5Atvo6AszbMnX8UrRN6G4C1yRAfWXxUqW8kC3/rbl3JxcNWAHMMa9jej/HCxl8PObyLwDV9kpWh2z0xbfcyEwJ0sLVIZtiW1f5NKgzKH5HVH25RExAoEwgo6obLw8Q7lpSZzkz725XA+MnIaeyRLaZIv+CoAhRkTuxIytiAEv7rZTEagwyCw2zJ9iLOVdv3SMelq95JR2obPYKwsOhyQ5iLbnEjvmSbg5vYNibZLThg9kgRSpPjl82xgflsupQU5P3dddC43zuCxWdscLftkBCjMzdJhnvrfv3ma7KwbFOhjGBKESl2KnUTPARwxk344Ae2l45Z0W0FrvhDkDbOQqJErJA406+DVP1JP7KkPz60FFXeUySCwAd87RPLG3nGTKKN4K+J6ll4Gr1NB4T2oMtQpBqecTCIXSRMQdm5uHfjaP7h/tUbZPxXi7SRlmM0WU9Y0kgf50y25/07RnKXPdtQsa5lPND/OyRQ0rfwlkg4qUgjPLT4auique62de5FHRJjcVqMXBhkIK6sNAUic/XIn+ZoGOZNEcI73yDWjcr0SyI1U2HFc7qJ9/IKjhdAxTTtRt3KcF7ZGcdgvp5o4F7NgFcnrLrqfPWxDDo+kvQGdNtnIsRNm6i8qGDDOa8Ds=
