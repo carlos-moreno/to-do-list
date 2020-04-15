@@ -6,11 +6,11 @@ from django.db import models
 class ToDo(models.Model):
     id = models.AutoField(primary_key=True)
     slug = models.SlugField(max_length=150, unique=True, blank=True, null=True)
-    title = models.CharField("título", max_length=255, unique=True)
-    description = models.CharField("descrição", max_length=255, blank=True)
-    created_at = models.DateField("criado em", auto_now_add=True)
-    ended = models.BooleanField("finalizado", default=False)
-    ended_in = models.DateField("finalizou em", blank=True, null=True)
+    title = models.CharField("title", max_length=255, unique=True)
+    description = models.CharField("description", max_length=255, blank=True)
+    created_at = models.DateField("created at", auto_now_add=True)
+    ended = models.BooleanField("ended", default=False)
+    ended_in = models.DateField("ended in", blank=True, null=True)
 
     class Meta:
         ordering = ("created_at",)
