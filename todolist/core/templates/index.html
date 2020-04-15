@@ -2,7 +2,7 @@
 
 
 {% block button %}
-<a href="{% url 'new' %}" class="mb-2 btn btn-success" style="">New Item</a>
+<a href="{% url 'new' %}" class="mb-2 btn btn-success btn-sm" style="">New Item</a>
 {% endblock %}
 {% block content %}
 <div class="row">
@@ -12,10 +12,12 @@
         <div class="card w-100">
             <div class="card-body">
                 <h5 class="card-title">{{ todo.title }}</h5>
-                <p class="card-text">{{ todo.description }}</p>
-                <p class="card-text">{{ todo.created_at }}</p>
-                <a href="{% url 'done' slug=todo.slug %}" class="btn btn-info">Done</a>
-                <a href="{% url 'delete' slug=todo.slug %}" class="btn btn-danger">Delete</a>
+                {% if todo.description %}
+                <p class="card-text">Description: {{ todo.description }}</p>
+                {% endif %}
+                <p class="card-text">Created at: {{ todo.created_at }}</p>
+                <a href="{% url 'done' slug=todo.slug %}" class="btn btn-info btn-sm">Done</a>
+                <a href="{% url 'delete' slug=todo.slug %}" class="btn btn-danger btn-sm">Delete</a>
             </div>
         </div>
         {% endfor %}
@@ -26,10 +28,12 @@
         <div class="card w-100">
             <div class="card-body">
                 <h5 class="card-title">{{ todo.title }}</h5>
-                <p class="card-text">{{ todo.description }}</p>
-                <p class="card-text">{{ todo.created_at }}</p>
-                <p class="card-text">{{ todo.ended_in }}</p>
-                <a href="{% url 'delete' slug=todo.slug %}" class="btn btn-danger">Delete</a>
+                {% if todo.description %}
+                <p class="card-text">Description: {{ todo.description }}</p>
+                {% endif %}
+                <p class="card-text">Created at: {{ todo.created_at }}</p>
+                <p class="card-text">Ended in: {{ todo.ended_in }}</p>
+                <a href="{% url 'delete' slug=todo.slug %}" class="btn btn-danger btn-sm">Delete</a>
             </div>
         </div>
         {% endfor %}

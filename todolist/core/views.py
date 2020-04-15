@@ -4,6 +4,7 @@ from django.shortcuts import resolve_url as r
 
 from todolist.core.forms import ToDoForm
 from todolist.core.models import ToDo
+from datetime import date
 
 
 def list(request):
@@ -45,5 +46,6 @@ def delete(request, slug):
 def done(request, slug):
     todo = get_object_or_404(ToDo, slug=slug)
     todo.ended = True
-    todo.save(update_fields=['ended'])
+    todo.ended_in = date.today()
+    todo.save(update_fields=['ended', 'ended_in'])
     return HttpResponseRedirect(r("list"))
