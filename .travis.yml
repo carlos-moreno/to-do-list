@@ -1,4 +1,7 @@
 dist: xenial
+env:
+  global:
+    secure: YVF/qLmfb1ITuqNwp+Mown9qTyBr/qH0jkkpleiKDfSLb7Iuxj61oSws/4yYONxhKzjufvUpj6UUcDOCoR9B3TcMHHUKKqeRxTLVJ+PHnE0VEJZtfMZ0B5r5lNOj+IPnO6NKieWn7LQxG/52wSAx7JCk82XajeBf1UyNk89V4c3E4VvkOBRKRMgPs99kJfZJve/bcpxRjWZ1y5ITRC7HmKkHxmByKkIoo2TVrGLzT34rnyJdeerZE+V6uQzwMq6cRmAQefB7K29N2gsqwQc1DD21cO1w5pJBUapi5+OAipBK+irzWId5vqRJUAPBE+yiLQACpURV5Rk++iVDATYxSVlMy2ECBg21t9Qp/kjeCZa52hqXgkI/jhCMphyzBLwYssSja+z07t3Ssx96NGDYMQtlB9afKoIkd3IHxV6grqB6dHCfYV6O1LL6iHV9tswsvPxIkkhr1CEJpdxhygIIye2ndYK+u8AjuN2khA2t//4r/SGMTLE0++405vgqHhTo+SjKnAr0p+w2ympovDdxaDoDadTjyoNgF21JJg8FfO9lN0yRRb7VuLy7gjkDFwZqYX1ue2uB0M3ndyjk/6nRxojzZ3/9ZpiQ7nyy+IZLM++IqspqAvedXxyA8TTRNy3iRBLHnoLxKwNWt2WNFebJ6r6fNt5hjH0VEChxf1EX/7c=
 language: python
 python:
 - '3.8'
@@ -12,6 +15,3 @@ deploy:
   api_key:
     secure: $HEROKU_API_KEY
   app: carlos-moreno-to-do
-env:
-  global:
-    secure: YVF/qLmfb1ITuqNwp+Mown9qTyBr/qH0jkkpleiKDfSLb7Iuxj61oSws/4yYONxhKzjufvUpj6UUcDOCoR9B3TcMHHUKKqeRxTLVJ+PHnE0VEJZtfMZ0B5r5lNOj+IPnO6NKieWn7LQxG/52wSAx7JCk82XajeBf1UyNk89V4c3E4VvkOBRKRMgPs99kJfZJve/bcpxRjWZ1y5ITRC7HmKkHxmByKkIoo2TVrGLzT34rnyJdeerZE+V6uQzwMq6cRmAQefB7K29N2gsqwQc1DD21cO1w5pJBUapi5+OAipBK+irzWId5vqRJUAPBE+yiLQACpURV5Rk++iVDATYxSVlMy2ECBg21t9Qp/kjeCZa52hqXgkI/jhCMphyzBLwYssSja+z07t3Ssx96NGDYMQtlB9afKoIkd3IHxV6grqB6dHCfYV6O1LL6iHV9tswsvPxIkkhr1CEJpdxhygIIye2ndYK+u8AjuN2khA2t//4r/SGMTLE0++405vgqHhTo+SjKnAr0p+w2ympovDdxaDoDadTjyoNgF21JJg8FfO9lN0yRRb7VuLy7gjkDFwZqYX1ue2uB0M3ndyjk/6nRxojzZ3/9ZpiQ7nyy+IZLM++IqspqAvedXxyA8TTRNy3iRBLHnoLxKwNWt2WNFebJ6r6fNt5hjH0VEChxf1EX/7c=
