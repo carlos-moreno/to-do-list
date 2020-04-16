@@ -38,3 +38,7 @@ python manage.py test
 python manage.py makemigrations
 python manage.py migrate
 ```
+9 - Run the application
+``` console
+python manage.py runserver
+```
