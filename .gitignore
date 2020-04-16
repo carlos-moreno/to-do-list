@@ -133,3 +133,6 @@ dmypy.json
 
 # directory of project
 .to-do-list
+
+# Postgres files
+.pgdata
