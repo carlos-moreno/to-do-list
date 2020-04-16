@@ -9,11 +9,11 @@ App To-Do List create with Django.
 ``` console
 git clone https://github.com/carlos-moreno/to-do-list.git
 ```
-2 - Go to the project directory 
+2 - Go to the project directory.
 ``` console
 cd to-do-list
 ```
-3 - Create a virtualenv with Python 3.6+
+3 - Create a virtualenv with Python 3.6+.
 ``` console
 python -m venv .to-do-list
 ```
@@ -25,7 +25,7 @@ source .to-do-list/bin/activate
 ``` console
 pip install -r requirements.txt
 ```
-6 - Configure the instance with .env
+6 - Configure the instance with .env.
 ``` console
 cp contrib/env-sample .env
 ```
@@ -33,7 +33,7 @@ cp contrib/env-sample .env
 ``` console
 python manage.py test
 ```
-8 - Run makemigrations and migrate
+8 - Run makemigrations and migrate.
 ``` console
 python manage.py makemigrations
 python manage.py migrate
