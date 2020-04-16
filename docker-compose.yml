@@ -1,0 +1,15 @@
+version: "3.3"
+
+services:
+  database:
+    container_name: todo_database
+    image: postgres
+    restart: always
+    volumes:
+      - ./.pgdata:/var/lib/postgresql/data
+    environment:
+      - LC_ALL=C.UTF-8
+      - POSTGRES_USER=todo
+      - POSTGRES_PASSWORD=todo
+    ports:
+      - 5433:5432
