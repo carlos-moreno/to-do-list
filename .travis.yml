@@ -1,12 +1,13 @@
 dist: xenial
 language: python
 python:
-- '3.8'
+  - '3.8'
 install:
-- cp contrib/env-sample .env
-- pip install -r requirements.txt
+  - cp contrib/env-sample .env
+  - pip install -r requirements.txt
 script:
-- python manage.py test
+  - python manage.py collectstatic --noinput
+  - python manage.py test
 deploy:
   provider: heroku
   api_key:
