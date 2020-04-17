@@ -136,3 +136,5 @@ dmypy.json
 
 # Postgres files
 .pgdata
+
+staticfiles
